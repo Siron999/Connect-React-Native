@@ -52,6 +52,9 @@ const CommentScreen = ({ navigation, route }) => {
     <View style={{
       flex: 1, flexDirection: "row", alignItems: "center", marginBottom: 5, paddingHorizontal: 20,
     }}>
+      <Avatar.Image size={30}
+                    source={(item.profileImg) ? { uri: item.profileImg } : require("../assets/images/profile.png")}
+                    style={{ marginRight: 10 }} />
       <Text style={{ fontWeight: "bold" }}>{item.username}{"  "}<Text
         style={{ fontSize: 14 }}>{item.comment}</Text></Text>
     </View>
@@ -73,6 +76,7 @@ const CommentScreen = ({ navigation, route }) => {
 
   useEffect(() => {
     setComments(route.params.comments);
+    console.log(route.params.comments);
   }, []);
 
   if (loading) {
